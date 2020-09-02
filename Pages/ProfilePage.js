@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Text, FlatList, View, Image, Button, StyleSheet, Alert, ScrollView} from 'react-native';
 import CustomText from '../module/CustomText';
 import CustomButton from '../module/CustomButton';
+import CustomHeader from '../module/CustomHeader';
+import { DrawerActions } from '@react-navigation/native';
 
   
 const ProfilePage = ({ navigation }) => {
@@ -11,34 +13,12 @@ const ProfilePage = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    React.useLayoutEffect(() => {
-        navigation.setOptions({
-            headerTitle: "Profile",
-            headerLeft: () => (
-                <CustomTabButton textShow={"Logout"} navMove={() => navigation.openDrawer()} />
-            ),
-            headerRight: () => (
-                <CustomTabButton textShow={"Add"} navMove={() => {
-                    Alert.prompt('Alert Title', 'message', [
-                        {
-                            text: 'ok',
-                            onPress: str => ShowData.push(str),
-                        },
-                        {
-                            text: 'Cancel',
-                            onPress: () => console.log('Pressed Cancel!'),
-                            style: 'cancel',
-                        },
-                    ]);
-                }
-            }/>
-            ),
-        });
-    }, [navigation]);
     return (
     <ScrollView>
+        <CustomHeader title="Profile" leftButton={() => {
+            navigation.dispatch(DrawerActions.openDrawer());
+        }}/>
         <View style={styles.container}>
-            <Text style={styles.title}>Profile</Text>
             <Image style={styles.imageModify} source={require('../Pictures/DummyImage.png')} />
             <CustomText  
                 placeHold={"Username"} 

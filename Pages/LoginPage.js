@@ -4,6 +4,7 @@ import CustomButton from '../module/CustomButton';
 import CustomText from '../module/CustomText';
 import CustomTabButton from '../module/CustomTabButton';
 
+
 const LoginPage = ({ navigation }) => {
   const [text, setText] = useState('');
   const [textPass, setTextPass] = useState('');
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     padding: 50,
     backgroundColor: "#eaeaea",
     justifyContent: 'center',
+    alignItems: 'center'
   },
   buttonLogin: {
     padding: 10
@@ -75,7 +77,8 @@ const styles = StyleSheet.create({
     color: "#20232a",
     textAlign: "center",
     fontSize: 30,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    width: 300,
   },
   btnContainer: {
     paddingTop: 30

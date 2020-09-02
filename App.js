@@ -43,10 +43,11 @@ const App = () => {
             name="MainScreen"
             component={MainScreen}
             options={{ 
-            title: 'Home',
+            title: 'Navigation App',
             headerBackTitle: null,
             headerLayoutPreset:'center',
-            headerLeft: null 
+            headerLeft: null,
+            headerShown: false
           }}
           />
         </Stack.Navigator>

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Text, FlatList, View, Image, Button, StyleSheet, Alert} from 'react-native';
+import { Text, FlatList, View, Image, Button, StyleSheet, Alert, ScrollView} from 'react-native';
 import CustomTabButton from '../module/CustomTabButton';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import AboutUs from './AboutUs';
 import SettingPage from './SettingPage';
 import ProfilePage from './ProfilePage';
 import DrawerContent from '../module/DrawerContent';
+import CustomHeader from '../module/CustomHeader';
+import { DrawerActions } from '@react-navigation/native';
 
 
 
@@ -50,12 +52,17 @@ const HomeScreen = ({ navigation }) => {
         });
     }, [navigation]);
   return (
-    <View style={styles.container}>
+    <ScrollView>
+      <CustomHeader title="Home" leftButton={() => {
+            navigation.dispatch(DrawerActions.openDrawer());
+      }}/>
+      <View style={styles.container}>
       <FlatList
         data={ShowData}
         renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
       />
-    </View>
+      </View>
+    </ScrollView>
   );
 }
   
