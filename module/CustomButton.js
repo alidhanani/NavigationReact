@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 15,
         borderRadius: 10,
+        width: 200,
+        margin: 3
     },
     buttonText: {
         color: 'white',

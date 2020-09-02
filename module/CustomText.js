@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         height: 40,
         paddingHorizontal: 10,
+        width: 300,
+        margin: 3
     }
 });
 
