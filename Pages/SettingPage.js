@@ -13,9 +13,6 @@ const SettingPage = ({ navigation }) => {
         }}/>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Setting Page</Text>
-          <CustomButton textShow={"Logout"} navMove={() => {
-              navigation.navigate('Home')
-          }}/>
         </View>
       </ScrollView>
     );
