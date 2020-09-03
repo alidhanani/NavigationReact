@@ -7,14 +7,16 @@ import { DrawerActions } from '@react-navigation/native';
   
 const SettingPage = ({ navigation }) => {
     return (
-      <ScrollView>
+      <View>
         <CustomHeader title="Setting" leftButton={() => {
               navigation.dispatch(DrawerActions.openDrawer());
-        }}/>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Setting Page</Text>
-        </View>
+        }} secondButton={true}/>
+        <ScrollView>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Setting Page</Text>
+          </View>
       </ScrollView>
+      </View>
     );
 }
 

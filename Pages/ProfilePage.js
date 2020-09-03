@@ -14,56 +14,58 @@ const ProfilePage = ({ navigation }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     return (
-    <ScrollView>
-        <CustomHeader title="Profile" leftButton={() => {
-            navigation.dispatch(DrawerActions.openDrawer());
-        }}/>
-        <View style={styles.container}>
-            <Image style={styles.imageModify} source={require('../Pictures/DummyImage.png')} />
-            <CustomText  
-                placeHold={"Username"} 
-                changeText={(text) => {
-                    setUsername(text)
-                }}
-                Default={username}
-            />
-            <CustomText  
-                placeHold={"Fullname"} 
-                changeText={(text) => {
-                    setFullname(text)
-                }}
-                Default={fullname}
-            />
-            <CustomText  
-                placeHold={"Email"} 
-                changeText={(text) => {
-                    setEmail(text)
-                }}
-                Default={email}
-            />
-            <CustomText  
-                placeHold={"Password"} 
-                changeText={(text) => {
-                    setPassword(text)
-                }}
-                Default={password}
-                isPassword={true}
+        <View>
+            <CustomHeader title="Profile" leftButton={() => {
+                    navigation.dispatch(DrawerActions.openDrawer());
+            }} secondButton={true}/>
+            <ScrollView>
+                <View style={styles.container}>
+                    <Image style={styles.imageModify} source={require('../Pictures/DummyImage.png')} />
+                    <CustomText  
+                        placeHold={"Username"} 
+                        changeText={(text) => {
+                            setUsername(text)
+                        }}
+                        Default={username}
+                    />
+                    <CustomText  
+                        placeHold={"Fullname"} 
+                        changeText={(text) => {
+                            setFullname(text)
+                        }}
+                        Default={fullname}
+                    />
+                    <CustomText  
+                        placeHold={"Email"} 
+                        changeText={(text) => {
+                            setEmail(text)
+                        }}
+                        Default={email}
+                    />
+                    <CustomText  
+                        placeHold={"Password"} 
+                        changeText={(text) => {
+                            setPassword(text)
+                        }}
+                        Default={password}
+                        isPassword={true}
 
-            />
-            <CustomText  
-                placeHold={"ConfirmPassword"} 
-                changeText={(text) => {
-                    setConfirmPassword(text)
-                }}
-                Default={confirmPassword}
-                isPassword={true}
-            />
-            <CustomButton textShow={"Save"} navMove={() => {
-                // To do something
-                alert("Save");
-            }}/>
+                    />
+                    <CustomText  
+                        placeHold={"ConfirmPassword"} 
+                        changeText={(text) => {
+                            setConfirmPassword(text)
+                        }}
+                        Default={confirmPassword}
+                        isPassword={true}
+                    />
+                    <CustomButton textShow={"Save"} navMove={() => {
+                        // To do something
+                        alert("Save");
+                    }}/>
+                </View>
+            </ScrollView>
         </View>
-    </ScrollView>
     );
 }
 

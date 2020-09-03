@@ -8,6 +8,7 @@ const CustomHeader = (props) => {
     <Appbar.Header style={styles.headerWork}>
       <Appbar.Action icon={require('../Pictures/menu.png')} onPress={props.leftButton} />
       <Appbar.Content title={props.title} subtitle={props.subtitle} />
+      <Appbar.Action disabled={props.secondButton} icon={require('../Pictures/add.png')} onPress={props.RightButton} />
     </Appbar.Header>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, FlatList, View, Image, Button, StyleSheet, Alert, ScrollView} from 'react-native';
+import { Text, FlatList, View, Image, Button, StyleSheet, Alert, ScrollView, RefreshControl} from 'react-native';
 import CustomTabButton from '../module/CustomTabButton';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import AboutUs from './AboutUs';
@@ -13,56 +13,45 @@ import { DrawerActions } from '@react-navigation/native';
 
 
 const HomeScreen = ({ navigation }) => {
+  const [ShowData, setShowData] = useState([
+    {key: 'Devin'},
+    {key: 'Dan'},
+    {key: 'Dominic'},
+    {key: 'Jackson'},
+    {key: 'James'},
+    {key: 'Joel'},
+    {key: 'John'},
+    {key: 'Jillian'},
+    {key: 'Jimmy'},
+    {key: 'Julie'},
+  ]); 
 
-
-    var ShowData = [
-        {key: 'Devin'},
-        {key: 'Dan'},
-        {key: 'Dominic'},
-        {key: 'Jackson'},
-        {key: 'James'},
-        {key: 'Joel'},
-        {key: 'John'},
-        {key: 'Jillian'},
-        {key: 'Jimmy'},
-        {key: 'Julie'},
-      ]
-      
-    React.useLayoutEffect(() => {
-        navigation.setOptions({
-            headerLeft: () => (
-                <CustomTabButton textShow={"Logout"} navMove={() => navigation.openDrawer()} />
-            ),
-            headerRight: () => (
-                <CustomTabButton textShow={"Add"} navMove={() => {
-                    Alert.prompt('Alert Title', 'message', [
-                        {
-                            text: 'ok',
-                            onPress: str => ShowData.push(str),
-                        },
-                        {
-                            text: 'Cancel',
-                            onPress: () => console.log('Pressed Cancel!'),
-                            style: 'cancel',
-                        },
-                    ]);
-                }
-            }/>
-            ),
-        });
-    }, [navigation]);
   return (
-    <ScrollView>
+    <View>
       <CustomHeader title="Home" leftButton={() => {
             navigation.dispatch(DrawerActions.openDrawer());
+      }} secondButton={false} RightButton={() => {
+        Alert.prompt('Alert Title', 'message', [
+            {
+                text: 'ok',
+                onPress: (str) => {ShowData.push({key: str}); setShowData(ShowData);},
+            },
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Pressed Cancel!'),
+                style: 'cancel',
+            },
+        ]);
       }}/>
-      <View style={styles.container}>
-      <FlatList
-        data={ShowData}
-        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-      />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+        <FlatList
+          data={ShowData}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        />
+        </View>
     </ScrollView>
+    </View>
   );
 }
   

@@ -5,14 +5,16 @@ import { DrawerActions } from '@react-navigation/native';
   
 const AboutUs= ({ navigation }) => {
     return (
-      <ScrollView>
+      <View>
         <CustomHeader title="About Us" leftButton={() => {
               navigation.dispatch(DrawerActions.openDrawer());
-        }}/>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>About Us</Text>
-        </View>
+        }} secondButton={true}/>
+        <ScrollView>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>About Us</Text>
+          </View>
       </ScrollView>
+      </View>
     );
 }
 
